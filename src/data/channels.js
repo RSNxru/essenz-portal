@@ -15,8 +15,9 @@
 
 // URL de cada proyecto. Sobrescribe en Vercel/.env con la URL real de
 // su deploy (p.ej. VITE_INSHOP_URL=https://inshop.essenz.cl).
-export const INSHOP_URL =
-  import.meta.env.VITE_INSHOP_URL || "https://in-shop-five.vercel.app";
+// InShop se sirve en el mismo origen vía proxy del portal (/InShop),
+// por eso la URL relativa: así comparte sesión Supabase (un solo login).
+export const INSHOP_URL = import.meta.env.VITE_INSHOP_URL || "/InShop";
 export const ESSENZPLAY_URL =
   import.meta.env.VITE_ESSENZPLAY_URL || "https://essenz.cl/essenzplay";
 

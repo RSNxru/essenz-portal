@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/InShop", "destination": "https://in-shop-five.vercel.app/InShop" },
+    { "source": "/InShop/:path*", "destination": "https://in-shop-five.vercel.app/InShop/:path*" }
+  ]
+}
