@@ -16,7 +16,7 @@
 // URL de cada proyecto. Sobrescribe en Vercel/.env con la URL real de
 // su deploy (p.ej. VITE_INSHOP_URL=https://inshop.essenz.cl).
 export const INSHOP_URL =
-  import.meta.env.VITE_INSHOP_URL || "https://essenz.cl/InShop";
+  import.meta.env.VITE_INSHOP_URL || "https://in-shop-five.vercel.app";
 export const ESSENZPLAY_URL =
   import.meta.env.VITE_ESSENZPLAY_URL || "https://essenz.cl/essenzplay";
 
