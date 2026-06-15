@@ -17,7 +17,46 @@ import {
   Paintbrush,
   Rocket,
   Layers,
+  ExternalLink,
+  Store,
+  Play,
+  Trophy,
 } from "lucide-react";
+
+// Proyectos destacados de la Landing. Para agregar uno, copia un objeto.
+// El GIF va en public/proyectos/<archivo>.gif (si falta, se ve el degradado).
+const PROYECTOS = [
+  {
+    nombre: "InShop",
+    desc: "Sistema de inventario y punto de venta multitienda con control de stock y alertas en tiempo real.",
+    gif: "/proyectos/inshop.gif",
+    github: "https://github.com/RSNxru/InShop",
+    live: "/InShop",
+    accent: "from-teal-500 to-cyan-600",
+    icon: Store,
+    tags: ["React", "Supabase", "POS"],
+  },
+  {
+    nombre: "EssenzPlay",
+    desc: "Reproductor y descargador multimedia sin anuncios sobre yt-dlp: 4K, SponsorBlock y modo podcast.",
+    gif: "/proyectos/essenzplay.gif",
+    github: "https://github.com/RSNxru/EssenzPlay",
+    live: null,
+    accent: "from-fuchsia-500 to-purple-600",
+    icon: Play,
+    tags: ["FastAPI", "React", "Docker"],
+  },
+  {
+    nombre: "Essenz Mundial",
+    desc: "Plataforma del Mundial 2026: match center en vivo, bracket interactivo y prode con scoring automático.",
+    gif: "/proyectos/essenz-mundial.gif",
+    github: "https://github.com/RSNxru/essenz-mundial",
+    live: null,
+    accent: "from-emerald-500 to-green-600",
+    icon: Trophy,
+    tags: ["React", "Supabase", "Zustand"],
+  },
+];
 
 export default function Landing({ onComenzar }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -364,27 +403,79 @@ export default function Landing({ onComenzar }) {
         className="py-24 px-6 md:px-12 bg-slate-50 dark:bg-[#070b0a] border-y border-teal-100 dark:border-teal-900/30"
       >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-12 text-center text-slate-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4 text-center text-slate-900 dark:text-white">
             Proyectos Destacados
           </h2>
+          <p className="text-slate-500 dark:text-slate-400 text-lg text-center max-w-2xl mx-auto mb-12">
+            Productos reales del ecosistema Essenz, en producción.
+          </p>
 
-          <div className="w-full flex flex-col items-center justify-center py-20 px-6 text-center border-2 border-dashed border-teal-300 dark:border-teal-700/50 rounded-[2.5rem] bg-teal-50/50 dark:bg-[#0b1311]">
-            <div className="w-20 h-20 rounded-full bg-white dark:bg-teal-900/40 shadow-sm flex items-center justify-center mb-6">
-              <Rocket size={32} className="text-teal-600 dark:text-teal-400" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-3 text-slate-900 dark:text-white">
-              Espacio en Construcción
-            </h3>
-            <p className="text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed mb-8">
-              Estamos forjando nuevas y robustas experiencias digitales. Muy
-              pronto actualizaremos esta sección con nuestros próximos casos de
-              éxito.
-            </p>
-            <div className="flex gap-2">
-              <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse delay-100"></span>
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse delay-200"></span>
-              <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse delay-300"></span>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PROYECTOS.map((p) => {
+              const Icon = p.icon;
+              return (
+                <div
+                  key={p.nombre}
+                  className="group rounded-[2rem] bg-white dark:bg-[#0b1311] border border-teal-100/50 dark:border-teal-900/30 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col"
+                >
+                  {/* MEDIA (GIF; si falta, se ve el degradado + icono) */}
+                  <div
+                    className={`relative aspect-video overflow-hidden bg-gradient-to-br ${p.accent}`}
+                  >
+                    <div className="absolute inset-0 flex items-center justify-center text-white/30">
+                      <Icon size={64} strokeWidth={1.5} />
+                    </div>
+                    <img
+                      src={p.gif}
+                      alt={`Demo de ${p.nombre}`}
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                      className="relative z-10 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+
+                  {/* CUERPO */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 mb-3 flex-wrap">
+                      {p.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="text-[10px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/30 px-2.5 py-1 rounded-full"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 text-slate-900 dark:text-white">
+                      {p.nombre}
+                    </h3>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                      {p.desc}
+                    </p>
+                    <div className="flex items-center gap-4 mt-auto pt-2 border-t border-slate-100 dark:border-slate-800/60">
+                      <a
+                        href={p.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                      >
+                        <Code size={16} /> GitHub
+                      </a>
+                      {p.live && (
+                        <a
+                          href={p.live}
+                          className="flex items-center gap-2 text-sm font-semibold text-teal-600 dark:text-teal-400 hover:underline ml-auto"
+                        >
+                          Ver en vivo <ExternalLink size={14} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -1,0 +1,15 @@
+Pon aquí los GIFs de tus proyectos destacados, con estos nombres EXACTOS:
+
+  inshop.gif
+  essenzplay.gif
+  essenz-mundial.gif
+
+Recomendado: grabaciones cortas (5-10 s) en loop, formato horizontal (16:9),
+menos de ~3 MB cada uno para que carguen rápido.
+
+Mientras no exista el GIF, la tarjeta muestra un degradado con el icono del
+proyecto (se ve bien igual). Al subir el archivo con el nombre correcto,
+aparece automáticamente.
+
+Para agregar/quitar proyectos o cambiar nombres de archivo, edita el arreglo
+PROYECTOS en src/pages/Landing.jsx.
