@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { EssenzMark } from "../components/Logo";
+import birdLogo from "../assets/essenz-bird.png";
 import {
   Sun,
   Moon,
@@ -138,9 +138,11 @@ export default function Landing({ onComenzar }) {
             onClick={() => window.scrollTo(0, 0)}
           >
             {/* Logo con fondo Verde Azulado */}
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105 shadow-lg shadow-teal-500/20">
-              <EssenzMark className="h-5 w-5 text-white" />
-            </div>
+            <img
+              src={birdLogo}
+              alt="Essenz"
+              className="h-9 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+            />
             <span className="font-semibold tracking-tight text-xl text-teal-950 dark:text-white">
               Essenz.
             </span>
@@ -707,9 +709,11 @@ export default function Landing({ onComenzar }) {
       <footer className="border-t border-teal-100 dark:border-teal-900/30 py-12 px-6 md:px-12 bg-slate-50 dark:bg-[#070b0a]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center overflow-hidden">
-              <EssenzMark className="h-4 w-4 text-white" />
-            </div>
+            <img
+              src={birdLogo}
+              alt="Essenz"
+              className="h-7 w-auto object-contain"
+            />
             <span className="font-semibold text-lg tracking-tight text-slate-900 dark:text-white">
               Essenz.
             </span>
