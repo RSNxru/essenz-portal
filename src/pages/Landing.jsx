@@ -58,6 +58,28 @@ const PROYECTOS = [
   },
 ];
 
+// Clientes con los que colaboramos. Para agregar, copia un objeto.
+const CLIENTES = [
+  {
+    nombre: "Velo de Luna",
+    dominio: "velodeluna.cl",
+    url: "https://velodeluna.cl",
+    accent: "from-fuchsia-500 to-purple-600",
+  },
+  {
+    nombre: "Kaelum",
+    dominio: "kaelum.cl",
+    url: "https://kaelum.cl",
+    accent: "from-teal-500 to-cyan-600",
+  },
+  {
+    nombre: "Yunke",
+    dominio: "yunke.cl",
+    url: "https://yunke.cl",
+    accent: "from-amber-500 to-orange-600",
+  },
+];
+
 export default function Landing({ onComenzar }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
@@ -148,6 +170,12 @@ export default function Landing({ onComenzar }) {
               Proyectos
             </a>
             <a
+              href="#clientes"
+              className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+            >
+              Clientes
+            </a>
+            <a
               href="#contacto"
               className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
             >
@@ -210,6 +238,13 @@ export default function Landing({ onComenzar }) {
             className="hover:text-teal-600"
           >
             Proyectos
+          </a>
+          <a
+            href="#clientes"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="hover:text-teal-600"
+          >
+            Clientes
           </a>
           <a
             href="#contacto"
@@ -476,6 +511,58 @@ export default function Landing({ onComenzar }) {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* CLIENTES */}
+      <section
+        id="clientes"
+        className="py-24 px-6 md:px-12 bg-white dark:bg-[#09110f]"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 text-xs font-semibold rounded-full mb-6">
+              <Sparkles size={14} /> Colaboraciones
+            </div>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4 text-slate-900 dark:text-white">
+              Clientes
+            </h2>
+            <p className="text-slate-500 dark:text-slate-400 text-lg">
+              Negocios reales que confían en Essenz para su presencia digital.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {CLIENTES.map((c) => (
+              <a
+                key={c.dominio}
+                href={c.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-6 rounded-[1.75rem] bg-slate-50 dark:bg-[#0b1311] border border-teal-100/50 dark:border-teal-900/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
+              >
+                <div
+                  className={`w-14 h-14 shrink-0 rounded-2xl bg-gradient-to-br ${c.accent} flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-500`}
+                >
+                  <span className="text-white font-black text-xl tracking-tighter">
+                    {c.nombre.charAt(0)}
+                  </span>
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white truncate">
+                    {c.nombre}
+                  </h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 truncate">
+                    {c.dominio}
+                  </p>
+                </div>
+                <ExternalLink
+                  size={18}
+                  className="text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors shrink-0"
+                />
+              </a>
+            ))}
           </div>
         </div>
       </section>
