@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logoKey from "/src/assets/LOGO.png";
+import { EssenzMark } from "../components/Logo";
 import {
   Sun,
   Moon,
@@ -139,11 +139,7 @@ export default function Landing({ onComenzar }) {
           >
             {/* Logo con fondo Verde Azulado */}
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105 shadow-lg shadow-teal-500/20">
-              <img
-                src={logoKey}
-                alt="Essenz"
-                className="h-6 w-auto object-contain brightness-0 invert"
-              />
+              <EssenzMark className="h-5 w-5 text-white" />
             </div>
             <span className="font-semibold tracking-tight text-xl text-teal-950 dark:text-white">
               Essenz.
@@ -712,11 +708,7 @@ export default function Landing({ onComenzar }) {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center overflow-hidden">
-              <img
-                src={logoKey}
-                alt="Essenz"
-                className="h-4 w-auto object-contain brightness-0 invert"
-              />
+              <EssenzMark className="h-4 w-4 text-white" />
             </div>
             <span className="font-semibold text-lg tracking-tight text-slate-900 dark:text-white">
               Essenz.

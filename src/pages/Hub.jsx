@@ -11,7 +11,7 @@ import {
   LayoutGrid,
   Sparkles,
 } from "lucide-react";
-import logoKey from "/src/assets/LOGO.png";
+import { EssenzMark } from "../components/Logo";
 import { channels } from "../data/channels";
 
 // Mapa nombre -> componente de icono (los datos viven en channels.js)
@@ -51,11 +51,7 @@ export default function Hub({ session, onLogout }) {
       <nav className="relative z-10 px-6 md:px-12 py-5 flex justify-between items-center border-b border-teal-100 dark:border-teal-900/30 bg-white/70 dark:bg-[#070b0a]/70 backdrop-blur-xl">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center overflow-hidden shadow-lg shadow-teal-500/20">
-            <img
-              src={logoKey}
-              alt="Essenz"
-              className="h-6 w-auto object-contain brightness-0 invert"
-            />
+            <EssenzMark className="h-5 w-5 text-white" />
           </div>
           <div className="leading-none">
             <span className="font-semibold tracking-tight text-xl text-teal-950 dark:text-white block">
