@@ -31,4 +31,5 @@ el compose maestro de `essenz-master-orchestrator`, detrás del gateway:
 |---------------------|--------------------|
 | `essenz.cl/`        | Essenz Portal      |
 | `essenz.cl/InShop`  | InShop (inventario)|
+| `essenz.cl/WatchParty` | Watch Party (sala privada) |
 | `essenz.cl/essenzplay` | EssenzPlay      |

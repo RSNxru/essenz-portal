@@ -18,6 +18,8 @@
 // InShop se sirve en el mismo origen vía proxy del portal (/InShop),
 // por eso la URL relativa: así comparte sesión Supabase (un solo login).
 export const INSHOP_URL = import.meta.env.VITE_INSHOP_URL || "/InShop";
+export const WATCH_PARTY_URL =
+  import.meta.env.VITE_WATCH_PARTY_URL || "/WatchParty";
 export const ESSENZPLAY_URL =
   import.meta.env.VITE_ESSENZPLAY_URL || "https://essenz.cl/essenzplay";
 
@@ -46,14 +48,15 @@ export const channels = [
   },
   // --- Casillas para proyectos futuros -----------------------
   {
-    id: "slot-1",
-    name: "Próximo proyecto",
-    tagline: "En el horno",
-    description: "Aquí irá tu siguiente sistema del ecosistema Essenz.",
-    type: "soon",
-    icon: "Plus",
-    accent: "from-slate-400 to-slate-500",
-    glow: "shadow-none",
+    id: "watch-party",
+    name: "Watch Party",
+    tagline: "Sala privada",
+    description: "Series sincronizadas, chat en tiempo real y biblioteca privada.",
+    type: "external",
+    url: WATCH_PARTY_URL,
+    icon: "Video",
+    accent: "from-emerald-500 to-green-600",
+    glow: "shadow-emerald-500/30",
   },
   {
     id: "slot-2",
