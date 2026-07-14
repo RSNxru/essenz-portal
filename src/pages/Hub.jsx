@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Store,
+  Video,
   Play,
   Plus,
   Lock,
@@ -15,7 +16,7 @@ import birdLogo from "../assets/essenz-bird.png";
 import { channels } from "../data/channels";
 
 // Mapa nombre -> componente de icono (los datos viven en channels.js)
-const ICONS = { Store, Play, Plus };
+const ICONS = { Store, Video, Play, Plus };
 
 export default function Hub({ session, onLogout }) {
   const [themeMode, setThemeMode] = useState(
@@ -38,7 +39,7 @@ export default function Hub({ session, onLogout }) {
     if (canal.type === "soon") return;
     // Navega a la ruta del proyecto dentro del dominio (mismo tab):
     // entrar a un canal se siente como abrir el proyecto.
-    window.location.href = canal.url;
+    window.location.assign(canal.url);
   };
 
   return (

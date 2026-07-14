@@ -1,6 +1,8 @@
 {
   "rewrites": [
     { "source": "/InShop", "destination": "https://in-shop-five.vercel.app/InShop" },
-    { "source": "/InShop/:path*", "destination": "https://in-shop-five.vercel.app/InShop/:path*" }
+    { "source": "/InShop/:path*", "destination": "https://in-shop-five.vercel.app/InShop/:path*" },
+    { "source": "/WatchParty", "destination": "https://watch-party-privada.vercel.app/WatchParty" },
+    { "source": "/WatchParty/:path*", "destination": "https://watch-party-privada.vercel.app/WatchParty/:path*" }
   ]
 }

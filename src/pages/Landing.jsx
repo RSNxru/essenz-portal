@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import birdLogo from "../assets/essenz-bird.png";
 import {
   Sun,
@@ -7,7 +7,6 @@ import {
   X,
   ArrowRight,
   Code,
-  Layout,
   Database,
   ChevronDown,
   Mail,
@@ -15,7 +14,6 @@ import {
   Send,
   Sparkles,
   Paintbrush,
-  Rocket,
   Layers,
   ExternalLink,
   Store,
